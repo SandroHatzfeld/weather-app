@@ -9,7 +9,24 @@
 </head>
 
 <body>
+	<form>
+		<div class="input-container">
+			<div class="input-container">
+				<label for="adressInput">Adress</label>
+				<input id="adressInput" placeholder="Adress" type="text">
+			</div>
+			<input id="submitAdressInput" type="submit" value="Set location">
+		</div>
+		<div class="input-container">
+			<label>Unit</label>
+			<input id="unitsInputMetric" type="radio" value="metric" name="unit" checked>
+			<label for="unitsInputMetric">Metric</label>
+			<input id="unitsInputImperial" type="radio" value="us" name="unit">
+			<label for="unitsInputImperial">Fahrenheit</label>
+		</div>
+	</form>
 	<script src="script.js"></script>
+
 </body>
 
 </html>

@@ -1,6 +1,11 @@
 const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
 const key = "9FZM8WUKPYLBQQUKHUB4XG7C9"
 const contentType = "json"
+
+const locationInput = document.querySelector("#adressInput")
+const locationInputSubmit = document.querySelector("#submitAdressInput")
+const unitSelection = document.getElementsByName("unit")
+
 let userLocation = "Primasens"
 let unit = "metric"
 
@@ -18,5 +23,17 @@ async function getData() {
 		
 	}
 }
+
+function setLocation(location) {
+	if(location === undefined || location === "") return
+
+	userLocation = location	
+}
+
+locationInputSubmit.addEventListener("click", (e) => {
+	e.preventDefault()
+	setLocation(locationInput.value)
+	getData()
+})
 
 getData()
