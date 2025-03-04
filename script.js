@@ -12,7 +12,6 @@ let unit = "metric"
 async function getData() {
 	try {
 		const apiURL = `${baseURL}${userLocation}?unitGroup=${unit}&key=${key}&contentType=${contentType}`
-		console.log(apiURL);
 		
 		const response = await fetch(apiURL)
 		const responsData = await response.json()
@@ -20,13 +19,11 @@ async function getData() {
 		
 	} catch (err) {
 		console.log(err);
-		
 	}
 }
 
 function setLocation(location) {
 	if(location === undefined || location === "") return
-
 	userLocation = location	
 }
 
@@ -36,4 +33,9 @@ locationInputSubmit.addEventListener("click", (e) => {
 	getData()
 })
 
+unitSelection.forEach(radioBtn => {
+	radioBtn.addEventListener("click", (e) => {
+		unit = e.target.value		
+	})
+})
 getData()
