@@ -24,6 +24,7 @@ async function getData() {
 		const response = await fetch(apiURL)
 		const responsData = await response.json()
 
+		renderToScreen(responsData)
 	} catch (err) {
 		console.log(err);
 	}
@@ -48,3 +49,9 @@ unitSelection.forEach(radioBtn => {
 		unit = e.target.value		
 	})
 })
+
+getData()
+
+function renderToScreen(data) {
+
+}

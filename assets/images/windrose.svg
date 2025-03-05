@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.21 171.21">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .8;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-2 {
+        fill: #f77474;
+      }
+
+      .cls-3 {
+        opacity: .5;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_1-2" data-name="Ebene 1">
+    <g>
+      <path class="cls-2" d="M74,59.05L83.95,1.4c.32-1.86,3-1.86,3.32,0l9.94,57.65-11.6,26.56-11.6-26.56Z"/>
+      <path class="cls-1" d="M59.05,97.2L1.4,87.26c-1.86-.32-1.86-3,0-3.32l57.65-9.94,26.56,11.6-26.56,11.6Z"/>
+      <path class="cls-1" d="M97.2,112.16l-9.94,57.65c-.32,1.86-3,1.86-3.32,0l-9.94-57.65,11.6-26.56,11.6,26.56Z"/>
+      <path class="cls-1" d="M112.16,74l57.65,9.94c1.86.32,1.86,3,0,3.32l-57.65,9.94-26.55-11.6,26.55-11.6Z"/>
+      <polygon class="cls-3" points="59.05 74 36.92 36.92 74 59.05 85.6 85.6 59.05 74"/>
+      <polygon class="cls-3" points="74 112.16 36.91 134.29 59.05 97.2 85.6 85.6 74 112.16"/>
+      <polygon class="cls-3" points="112.16 97.21 134.29 134.29 97.2 112.16 85.6 85.61 112.16 97.21"/>
+      <polygon class="cls-3" points="97.21 59.05 134.29 36.92 112.16 74 85.6 85.61 97.21 59.05"/>
+      <circle class="cls-4" cx="85.6" cy="85.6" r="68.87"/>
+    </g>
+  </g>
+</svg>

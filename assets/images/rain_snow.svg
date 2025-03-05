@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.13 93.33">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_1-2" data-name="Ebene 1">
+    <g>
+      <polyline class="cls-2" points="81.13 36.25 67.26 32.53 70.88 19"/>
+      <polyline class="cls-2" points="69.43 40.99 57.97 37.92 60.96 26.75"/>
+      <polyline class="cls-2" points="59.12 45.52 49.36 42.91 51.91 33.39"/>
+      <polyline class="cls-2" points="71.1 76.14 67.38 62.27 80.92 58.64"/>
+      <polyline class="cls-2" points="61.14 68.38 58.07 56.92 69.24 53.92"/>
+      <polyline class="cls-2" points="52.06 61.72 49.45 51.96 58.97 49.41"/>
+      <polyline class="cls-2" points="31.54 87.4 41.69 77.25 51.6 87.15"/>
+      <polyline class="cls-2" points="33.28 74.89 41.67 66.5 49.85 74.68"/>
+      <polyline class="cls-2" points="34.51 63.7 41.66 56.56 48.62 63.53"/>
+      <polyline class="cls-2" points="2 58.77 15.88 62.49 12.25 76.02"/>
+      <polyline class="cls-2" points="13.71 54.03 25.17 57.1 22.17 68.27"/>
+      <polyline class="cls-2" points="24.01 49.49 33.77 52.11 31.22 61.63"/>
+      <polyline class="cls-2" points="12.03 18.87 15.75 32.75 2.22 36.37"/>
+      <polyline class="cls-2" points="21.99 26.64 25.06 38.1 13.89 41.09"/>
+      <polyline class="cls-2" points="31.07 33.3 33.69 43.06 24.17 45.61"/>
+      <polyline class="cls-2" points="51.6 7.61 41.44 17.77 31.54 7.86"/>
+      <polyline class="cls-2" points="49.85 20.12 41.46 28.51 33.28 20.33"/>
+      <polyline class="cls-2" points="48.62 31.31 41.48 38.46 34.51 31.49"/>
+      <line class="cls-1" x1="41.57" y1="2" x2="41.57" y2="91.33"/>
+      <line class="cls-1" x1="2.16" y1="70.26" x2="79.51" y2="25.6"/>
+      <line class="cls-1" x1="2.16" y1="24.75" x2="79.51" y2="69.42"/>
+    </g>
+  </g>
+</svg>

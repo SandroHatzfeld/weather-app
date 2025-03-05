@@ -11,53 +11,56 @@
 <body>
 	<div id="app-wrapper">
 		<div id="app-container">
-			<div class="box-container">
+			<div class="box-container" id="box-adress">
 				<div class="box-heading">
-					<h1>City</h1>
-					<input id="submitAdressInput" type="submit" value="Search">
+					<h1 id="adress-input" contenteditable>City</h1>
 				</div>
-				<p id="adress"></p>
-				<p id="date"></p>
-				<p id="time"></p>
+				<div class="align-bottom col-container">
+					<p id="adress-value">City, Country</p>
+					<p id="date-value">Mo, 05.03.2025</p>
+					<p id="time-value">12:41:11</p>
+				</div>
 			</div>
-			<div class="box-container">
+			<div class="box-container" id="box-sunrise">
 				<div class="box-heading">
 					<h2>Sunrise / Sunset</h2>
 				</div>
 				<div class="row-container">
-					<div class="row-element">
-						<img src="" alt="">
+					<div class="col-container center-items">
+						<img src="/assets/images/sunrise.svg" alt="">
 						<p id="sunrise-value">Sunrise</p>
 					</div>
-					<div class="row-element">
-						<img src="" alt="">
+					<div class="col-container center-items">
+						<img src="/assets/images/sunset.svg" alt="">
 						<p id="sunset-value">Sunset</p>
 					</div>
 				</div>
 			</div>
-			<div class="box-container">
+			<div class="box-container" id="box-current-weather">
 				<img id="current-weather-icon" src="" alt="">
-				<div class="row-container">
-					<h1 id="current-weather">Cloudy</h1>
-					<h1 id="current-temperature">19°C</h1>
-				</div>
-				<div class="row-container">
-					<p id="current-max-temp">Max Temp.:</p>
-					<p id="current-max-temp-value">19°C</p>
-				</div>
-				<div class="row-container">
-					<p id="current-max-temp">Min Temp.:</p>
-					<p id="current-max-temp-value">19°C</p>
+				<div class="align-bottom">
+					<div class="row-container">
+						<h1 id="current-weather">Cloudy</h1>
+						<h1 id="current-temperature">19°C</h1>
+					</div>
+					<div class="row-container">
+						<p id="current-max-temp">Max Temp.:</p>
+						<p id="current-max-temp-value">19°C</p>
+					</div>
+					<div class="row-container">
+						<p id="current-max-temp">Min Temp.:</p>
+						<p id="current-max-temp-value">19°C</p>
+					</div>
 				</div>
 			</div>
-			<div class="box-container">
+			<div class="box-container" id="box-wind">
 				<div class="box-heading">
 					<h2>Wind</h2>
 				</div>
 				<div class="row-container">
 					<div id="wind-rose-container">
-						<img src="" alt="">
-						<img id="wind-rose-needle" src="" alt="">
+						<img src="/assets/images/windrose.svg" alt="">
+						<img id="wind-rose-needle" src="/assets/images/winddirection.svg" alt="">
 					</div>
 					<div id="wind-values" class="center-items">
 						<h1 id="wind-speed-value">10</h1>
@@ -66,34 +69,43 @@
 					</div>
 				</div>
 			</div>
-			<div class="box-container">
+			<div class="box-container" id="box-rain">
 				<div class="box-heading">
 					<h2>Rain</h2>
 				</div>
 				<div class="row-container">
-					<img src="" alt="">
-					<div>
-						<p id="rain-chance-value"></p>
-						<p id="rain-coverage-value"></p>
-						<p id="humidity-value"></p>
+					<img src="/assets/images/rain_3.svg" alt="" id="rain-image">
+					<div class="col-container center-items">
+						<div class="row-container">
+							<p>Rainchance:</p>
+							<p id="rain-chance-value">0%</p>
+						</div>
+						<div class="row-container">
+							<p>Rainamount:</p>
+							<p id="rain-coverage-value">0</p>
+						</div>
+						<div class="row-container">
+							<p>Humidity:</p>
+							<p id="humidity-value">25%</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="box-container">
+			<div class="box-container" id="box-forecast">
 				<div class="box-heading">
 					<h2>14 Day forecast </h2>
 				</div>
 				<div id="forecast-wrapper"></div>
 			</div>
 		</div>
-		<div id="unit-wrapper" >
+		<div id="unit-wrapper">
 			<div id="unit-container" class="row-container" data-unit="0">
 				<span>°C</span><span>°F</span>
 			</div>
 			<div id="unit-highlight"></div>
 		</div>
 	</div>
-	
+
 	<script src="script.js"></script>
 	<script src="jquery-3.7.1.min.js"></script>
 </body>
