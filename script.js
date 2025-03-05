@@ -14,6 +14,12 @@ const forecastWeatherEl = document.querySelector("#forecastWeather")
 let userLocation = "Pirmasens"
 let unit = "metric"
 
+// **************************************************
+//  Prevent CSS transitions from firing on page load
+// **************************************************
+window.onload = () => {
+	document.querySelector('body').classList.remove('preload');
+};
 
 // fetch the data depending on the location
 async function getData() {
