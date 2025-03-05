@@ -9,26 +9,93 @@
 </head>
 
 <body>
-	<form>
-		<div class="input-container">
-			<div class="input-container">
-				<label for="adressInput">Adress</label>
-				<input id="adressInput" placeholder="Adress" type="text">
-				<input id="submitAdressInput" type="submit" value="Set location">
+	<div id="app-wrapper">
+		<div id="app-container">
+			<div class="box-container">
+				<div class="box-heading">
+					<h1>City</h1>
+					<input id="submitAdressInput" type="submit" value="Search">
+				</div>
+				<p id="adress"></p>
+				<p id="date"></p>
+				<p id="time"></p>
+			</div>
+			<div class="box-container">
+				<div class="box-heading">
+					<h2>Sunrise / Sunset</h2>
+				</div>
+				<div class="row-container">
+					<div class="row-element">
+						<img src="" alt="">
+						<p id="sunrise-value">Sunrise</p>
+					</div>
+					<div class="row-element">
+						<img src="" alt="">
+						<p id="sunset-value">Sunset</p>
+					</div>
+				</div>
+			</div>
+			<div class="box-container">
+				<img id="current-weather-icon" src="" alt="">
+				<div class="row-container">
+					<h1 id="current-weather">Cloudy</h1>
+					<h1 id="current-temperature">19°C</h1>
+				</div>
+				<div class="row-container">
+					<p id="current-max-temp">Max Temp.:</p>
+					<p id="current-max-temp-value">19°C</p>
+				</div>
+				<div class="row-container">
+					<p id="current-max-temp">Min Temp.:</p>
+					<p id="current-max-temp-value">19°C</p>
+				</div>
+			</div>
+			<div class="box-container">
+				<div class="box-heading">
+					<h2>Wind</h2>
+				</div>
+				<div class="row-container">
+					<div id="wind-rose-container">
+						<img src="" alt="">
+						<img id="wind-rose-needle" src="" alt="">
+					</div>
+					<div id="wind-values" class="center-items">
+						<h1 id="wind-speed-value">10</h1>
+						<p id="wind-speed-unit">km/h</p>
+						<p id="wind-speed-direction">North</p>
+					</div>
+				</div>
+			</div>
+			<div class="box-container">
+				<div class="box-heading">
+					<h2>Rain</h2>
+				</div>
+				<div class="row-container">
+					<img src="" alt="">
+					<div>
+						<p id="rain-chance-value"></p>
+						<p id="rain-coverage-value"></p>
+						<p id="humidity-value"></p>
+					</div>
+				</div>
+			</div>
+			<div class="box-container">
+				<div class="box-heading">
+					<h2>14 Day forecast </h2>
+				</div>
+				<div id="forecast-wrapper"></div>
 			</div>
 		</div>
-		<div class="input-container">
-			<label>Unit</label>
-			<input id="unitsInputMetric" type="radio" value="metric" name="unit" checked>
-			<label for="unitsInputMetric">Metric</label>
-			<input id="unitsInputImperial" type="radio" value="us" name="unit">
-			<label for="unitsInputImperial">Fahrenheit</label>
+		<div id="unit-wrapper" >
+			<div id="unit-container" class="row-container" data-unit="0">
+				<span>°C</span><span>°F</span>
+			</div>
+			<div id="unit-highlight"></div>
 		</div>
-	</form>
-	<div id="currentWeather"></div>
-	<div id="forecastWeather"></div>
+	</div>
+	
 	<script src="script.js"></script>
-
+	<script src="jquery-3.7.1.min.js"></script>
 </body>
 
 </html>
