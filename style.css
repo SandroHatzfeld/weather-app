@@ -16,6 +16,7 @@
 body, h1, h2, p {
 	margin: 0;
 	padding: 0;
+	cursor: default;
 }
 
 h2 {
@@ -117,13 +118,10 @@ h2 {
 	text-align: center;
 	transform: translate(-1rem,-1rem);
 }
-.box-heading h1, .box-heading h2 {
+.box-heading h2 {
 	translate: 0 3px;
 }
-#box-adress .box-heading {
-	transform: translate(-2.5rem,-1.5rem);
-	padding: 0 2rem;
-}
+
 
 /* Helper classes for layouting */
 .row-container {
@@ -144,7 +142,26 @@ h2 {
 	align-self: flex-end;
 }
 
+
 /* Box specific stylings */
+/* Box Adress */
+#box-adress .box-heading {
+	transform: translate(-2.5rem,-1.5rem);
+	padding: 0 1.5rem;
+	overflow: hidden;
+	height: 3rem;
+}
+#adress-input {
+	height: 2.5rem;
+	font-family: "Zain",Arial, Helvetica, sans-serif;
+	font-size: 2rem;
+	min-width: 300px;
+	max-width: 400px;
+	translate: 0 3px;
+	border: none;
+	outline: none;
+}
+
 /* Box Sunrise */
 #box-sunrise img {
 	width: 5rem;
