@@ -135,7 +135,6 @@ h2 {
 	display: flex;
 	flex-direction: column;
 }
-
 .center-items {
 	align-items: center;
 	justify-content: center;
@@ -143,9 +142,15 @@ h2 {
 .align-bottom {
 	align-self: flex-end;
 }
+
 #box-sunrise img {
 	width: 5rem;
 }
+
+#current-weather-icon {
+	transform: scale(1.6) translateY(-1rem);
+}
+
 #box-wind .row-container {
 	justify-content: space-evenly;
 }

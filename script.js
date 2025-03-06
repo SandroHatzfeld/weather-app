@@ -29,8 +29,8 @@ async function getData() {
 		
 		const response = await fetch(apiURL)
 		const responsData = await response.json()
-
-		renderToScreen(responsData)
+		
+		return responsData
 	} catch (err) {
 		console.log(err);
 	}
@@ -42,22 +42,7 @@ function setLocation(location) {
 	userLocation = location	
 }
 
-// eventlistener for submitting new location
-locationInputSubmit.addEventListener("click", (e) => {
-	e.preventDefault()
-	setLocation(locationInput.value)
-	getData()
-})
 
-// eventlistener for unit selection
-unitSelection.forEach(radioBtn => {
-	radioBtn.addEventListener("click", (e) => {
-		unit = e.target.value		
-	})
-})
-
-getData()
-
-function renderToScreen(data) {
-
+function renderToScreen() {
+	const data = getData()
 }
