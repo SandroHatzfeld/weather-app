@@ -38,6 +38,7 @@ h2 {
 	border: 0.25rem solid var(--text-background-color);
 	border-radius: 5rem;
 	position: relative;
+	cursor: ew-resize;
 }
 #unit-container {
 	z-index: 10;
