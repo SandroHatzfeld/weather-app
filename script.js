@@ -117,9 +117,9 @@ function renderValuesToScreen() {
 
 	// data for current weather
 	$("#current-weather-value").text(currentConditions.conditions)
-	$("#current-temperature-value").text(`${currentConditions.temp} ${units[ selectedUnit ].degree}`)
-	$("#current-min-temp-value").text(`${forecast[0].tempmin} ${units[ selectedUnit ].degree}`)
-	$("#current-max-temp-value").text(`${forecast[0].tempmax} ${units[ selectedUnit ].degree}`)
+	$("#current-temperature-value").html(`${currentConditions.temp}&nbsp;${units[ selectedUnit ].degree}`)
+	$("#current-min-temp-value").html(`${forecast[0].tempmin}&nbsp;${units[ selectedUnit ].degree}`)
+	$("#current-max-temp-value").html(`${forecast[0].tempmax}&nbsp;${units[ selectedUnit ].degree}`)
 
 	// data for wind
 	$("#wind-speed-value").text(currentConditions.windspeed)
@@ -127,9 +127,9 @@ function renderValuesToScreen() {
 	$("#wind-speed-direction").text(currentConditions.winddir)
 
 	// data for rain
-	$("#rain-chance-value").text(currentConditions.precipprob + " %")
-	$("#rain-coverage-value").text(currentConditions.precip + units[ selectedUnit ].lengthSmall)
-	$("#humidity-value").text(currentConditions.humidity + " %")
+	$("#rain-chance-value").html(`${currentConditions.precipprob}&nbsp;%`)
+	$("#rain-coverage-value").html(`${currentConditions.precip}&nbsp;${units[ selectedUnit ].lengthSmall}`)
+	$("#humidity-value").html(`${currentConditions.humidity}&nbsp;%`)
 }
 
 // render loading values 
