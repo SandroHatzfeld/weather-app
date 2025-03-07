@@ -13,9 +13,6 @@
 	font-size: 30px;
 	font-family: "Zain", Arial, Helvetica, sans-serif;
 }
-* {
-	transition: opacity ease 0.5s;
-}
 
 body,
 h1,
@@ -103,11 +100,19 @@ h2 {
 }
 
 /* Hide content of boxes if the page is first loaded */
-.empty .box-container * {
+.box-container *:not(#adress-input-form, #adress-input-form *) {
 	opacity: 0;
+	transition: opacity ease 0.2s;
 }
 
-.empty #adress-input-form , #app-wrapper, #app-container, .box-container{
+#app-container:not(.empty) * {
+	opacity: 1;
+}
+
+/* .empty #adress-input-form,
+#app-wrapper,
+#app-container,
+.box-container {
 	visibility: visible;
 	opacity: 1;
 }
@@ -116,7 +121,7 @@ h2 {
 	visibility: visible;
 	opacity: 1;
 	display: block;
-}
+} */
 
 /*  Loading animation for values when searching for city */
 .loading .value {
@@ -196,19 +201,22 @@ h2 {
 	padding-top: 2rem;
 	grid-template-rows: 1fr auto;
 }
+
 #adress-input-form {
 	z-index: 20;
 	display: flex;
 	align-items: center;
 	position: relative;
 }
+
 #box-adress .box-heading {
 	transform: translate(-2.5rem, -2.75rem);
 	padding: 0;
 	overflow: hidden;
 }
 
-#adress-input, #adress-input-submit {
+#adress-input,
+#adress-input-submit {
 	padding: 0 1.5rem;
 	height: 3rem;
 	font-family: "Zain", Arial, Helvetica, sans-serif;
@@ -216,6 +224,7 @@ h2 {
 	border: none;
 	outline: none;
 }
+
 #adress-input {
 	padding: 0 1.5rem;
 	height: 2.5rem;
@@ -224,9 +233,11 @@ h2 {
 	max-width: 400px;
 	translate: 0 3px;
 }
+
 #adress-input-form .box-heading:nth-child(1) {
 	z-index: 10;
 }
+
 #adress-input-form .box-heading:nth-child(2) {
 	position: absolute;
 	z-index: 5;
@@ -234,9 +245,11 @@ h2 {
 	transition: right ease 0.5s;
 	background-color: var(--sun-color);
 }
+
 #adress-input-form .box-heading:nth-child(2).active {
 	right: calc(-100% + 1.5rem);
 }
+
 #adress-input-submit {
 	height: 2rem;
 	font-size: 1.5rem;

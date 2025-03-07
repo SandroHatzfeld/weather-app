@@ -39,7 +39,6 @@ let data
 // **************************************************
 window.onload = () => {
 	document.querySelector('body').classList.remove('preload')
-	renderEmptyValues()
 }
 
 // fetch the data depending on the location
@@ -73,10 +72,6 @@ unitSelection.addEventListener("click", () => {
 	renderValuesToScreen()
 })
 
-function renderEmptyValues() {
-	app.classList.add("empty")
-}
-
 // input listener for changing the city
 adressInputSubmit.addEventListener("click", (e) => {
 	e.preventDefault()
@@ -103,7 +98,7 @@ function renderValuesToScreen() {
 	
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
-	const correctedAdress = `${splitAdress[1]}, ${splitAdress[2]}`
+	const correctedAdress = `${splitAdress[1]}, ${splitAdress[2] ? splitAdress[2] : ""}`
 	$("#adress-value").text(correctedAdress)
 	const date = new Date()
 	$("#date-value").text(date.toLocaleDateString(undefined, dateOptions))
