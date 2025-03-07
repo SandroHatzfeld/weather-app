@@ -70,7 +70,7 @@ h2 {
 	background-color: var(--background-color);
 }
 #app-container {
-	margin: 2rem auto;
+	margin: 2rem;
 	padding: 2rem;
 	background-color: var(--app-background-color);
 	border-radius: 1rem;
@@ -150,6 +150,7 @@ h2 {
 	padding: 0 1.5rem;
 	overflow: hidden;
 	height: 3rem;
+	z-index: 20;
 }
 #adress-input {
 	height: 2.5rem;
@@ -162,6 +163,12 @@ h2 {
 	outline: none;
 }
 
+#box-adress p, #box-adress h3 {
+	align-self: flex-end;
+}
+#box-adress h3 {
+	margin: 0;
+}
 /* Box Sunrise */
 #box-sunrise img {
 	width: 5rem;

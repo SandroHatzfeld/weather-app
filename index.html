@@ -15,10 +15,10 @@
 				<form class="box-heading col-container center-items" id="adress-input-form">
 					<input id="adress-input" value="City" type="text"></input>
 				</form>
-				<div class="align-bottom col-container">
-					<p id="adress-value">City, Country</p>
-					<p id="date-value">Mo, 05.03.2025</p>
-					<p id="time-value">12:41:11</p>
+				<p id="adress-value">City, Country</p>
+				<div class="row-container">
+					<h3 id="date-value">Mo, 05.03.2025</h3>
+					<h3 id="time-value">12:41:11</h3>
 				</div>
 			</div>
 			<div class="box-container" id="box-sunrise">
@@ -40,16 +40,16 @@
 				<img id="current-weather-icon" src="/assets/images/weather_icons/rain-snow-showers-night.svg" alt="">
 				<div class="align-bottom">
 					<div class="row-container">
-						<h1 id="current-weather">Cloudy</h1>
-						<h1 id="current-temperature">19°C</h1>
+						<h1 id="current-weather-value"></h1>
+						<h1 id="current-temperature-value"></h1>
 					</div>
 					<div class="row-container">
-						<p id="current-max-temp">Max Temp.:</p>
-						<p id="current-max-temp-value">19°C</p>
+						<p>Min Temp.:</p>
+						<p id="current-max-temp-value"></p>
 					</div>
 					<div class="row-container">
-						<p id="current-max-temp">Min Temp.:</p>
-						<p id="current-max-temp-value">19°C</p>
+						<p>Max Temp.:</p>
+						<p id="current-max-temp-value"></p>
 					</div>
 				</div>
 			</div>
@@ -107,6 +107,7 @@
 	</div>
 
 	<script src="script.js"></script>
+	<script src="jquery-3.7.1.min.js"></script>
 </body>
 
 </html>
