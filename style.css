@@ -38,7 +38,9 @@ h2 {
 	background-color: var(--app-background-color);
 	border: 0.25rem solid var(--text-background-color);
 	border-radius: 5rem;
-	position: relative;
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
 	cursor: ew-resize;
 }
 #unit-container {
@@ -71,17 +73,18 @@ h2 {
 }
 #app-container {
 	margin: 2rem;
-	padding: 2rem;
+	padding: 0.75rem;
 	background-color: var(--app-background-color);
 	border-radius: 1rem;
 	display: grid;
 	gap: 1.5rem;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
 	grid-template-areas: 
-		"adress adress current-weather current-weather wind wind"
-		"sunrise sunrise current-weather current-weather rain rain"
-		"forecast forecast forecast forecast forecast forecast";
+		"adress current-weather  wind"
+		"sunrise current-weather  wind"
+		"sunrise current-weather  rain"
+		"forecast forecast  forecast";
 }
 #box-adress {
 	grid-area: adress;	
@@ -145,6 +148,10 @@ h2 {
 
 /* Box specific stylings */
 /* Box Adress */
+#box-adress {
+	padding-top: 2rem;
+	grid-template-rows: 1fr auto;
+}
 #box-adress .box-heading {
 	transform: translate(-2.5rem,-1.5rem);
 	padding: 0 1.5rem;
@@ -162,16 +169,19 @@ h2 {
 	border: none;
 	outline: none;
 }
-
 #box-adress p, #box-adress h3 {
 	align-self: flex-end;
 }
 #box-adress h3 {
 	margin: 0;
 }
+
 /* Box Sunrise */
 #box-sunrise img {
-	width: 5rem;
+	width: 6rem;
+}
+#sunrise-container {
+	gap: 1rem;
 }
 
 /* Box current weather */
@@ -184,7 +194,7 @@ h2 {
 	justify-content: space-evenly;
 }
 #wind-rose-container {
-	width: 6rem;
+	width: 8rem;
 	display: grid;
 	place-items: center;
 }
@@ -194,7 +204,6 @@ h2 {
 }
 #wind-rose-needle {
 	width: 1em;
-	transform:translateY(-0.8rem);
 }
 #wind-values {
 	text-align: center;

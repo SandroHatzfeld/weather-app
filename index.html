@@ -12,9 +12,9 @@
 	<div id="app-wrapper">
 		<div id="app-container">
 			<div class="box-container" id="box-adress">
-				<form class="box-heading col-container center-items" id="adress-input-form">
-					<input id="adress-input" value="City" type="text"></input>
-				</form>
+				<div class="box-heading col-container center-items" id="adress-input-form">
+					<input id="adress-input" type="text"></input>
+				</div>
 				<p id="adress-value">City, Country</p>
 				<div class="row-container">
 					<h3 id="date-value">Mo, 05.03.2025</h3>
@@ -25,7 +25,7 @@
 				<div class="box-heading">
 					<h2>Sunrise / Sunset</h2>
 				</div>
-				<div class="row-container">
+				<div class="col-container center-items" id="sunrise-container">
 					<div class="col-container center-items">
 						<img src="/assets/images/sunrise.svg" alt="">
 						<p id="sunrise-value">Sunrise</p>
@@ -45,7 +45,7 @@
 					</div>
 					<div class="row-container">
 						<p>Min Temp.:</p>
-						<p id="current-max-temp-value"></p>
+						<p id="current-min-temp-value"></p>
 					</div>
 					<div class="row-container">
 						<p>Max Temp.:</p>
@@ -62,7 +62,7 @@
 						<img src="/assets/images/windrose.svg" alt="">
 						<img id="wind-rose-needle" src="/assets/images/winddirection.svg" alt="">
 					</div>
-					<div id="wind-values" class="center-items">
+					<div id="wind-values" class="col-container center-items">
 						<h1 id="wind-speed-value">10</h1>
 						<p id="wind-speed-unit">km/h</p>
 						<p id="wind-speed-direction">North</p>

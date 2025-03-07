@@ -5,16 +5,16 @@ const contentType = "json"
 const systems = [ "metric", "us" ]
 const units = [
 	{
-		lengthSmall: " mm",
-		length: " m",
-		degree: " °C",
-		speed: " km/h"
+		lengthSmall: "mm",
+		length: "m",
+		degree: "°C",
+		speed: "km/h"
 	},
 	{
-		lengthSmall: " inch",
-		length: " ft",
-		degree: " °F",
-		speed: " mi/h"
+		lengthSmall: "inch",
+		length: "ft",
+		degree: "°F",
+		speed: "mi/h"
 	}
 ]
 const dateOptions = {
@@ -26,7 +26,7 @@ const dateOptions = {
 
 // element selection
 const unitSelection = document.querySelector("#unit-wrapper")
-const adressInput = document.querySelector("#adress-Input")
+const adressInput = document.querySelector("#adress-input")
 const adressInputForm = document.querySelector("#adress-input-form")
 
 let userLocation = "Pirmasens"
@@ -61,6 +61,7 @@ function setLocation(location) {
 	userLocation = location
 }
 
+// switch units on click
 unitSelection.addEventListener("click", () => {
 	if (selectedUnit === 0) {
 		selectedUnit = 1
@@ -72,12 +73,13 @@ unitSelection.addEventListener("click", () => {
 	renderToScreen()
 })
 
+// replace the placeholder values with actuals ones
 async function renderToScreen() {
 	const data = await getData()
 	const currentConditions = data.currentConditions
 	const forecast = data.days
 	
-	console.log(forecast)
+	console.log(data)
 	
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
@@ -96,10 +98,10 @@ async function renderToScreen() {
 	$("#sunset-value").text(currentConditions.sunset)
 
 	// data for current weather
-	$("#current-weather-value").text(currentConditions.condition)
-	$("#current-temperature-value").text(currentConditions.temp + units[ selectedUnit ].degree)
-	$("#current-min-temp-value").text(forecast[0].tempmin + units[ selectedUnit ].degree)
-	$("#current-max-temp-value").text(forecast[0].tempmax + units[ selectedUnit ].degree)
+	$("#current-weather-value").text(currentConditions.conditions)
+	$("#current-temperature-value").text(`${currentConditions.temp} ${units[ selectedUnit ].degree}`)
+	$("#current-min-temp-value").text(`${forecast[0].tempmin} ${units[ selectedUnit ].degree}`)
+	$("#current-max-temp-value").text(`${forecast[0].tempmax} ${units[ selectedUnit ].degree}`)
 
 	// data for wind
 	$("#wind-speed-value").text(currentConditions.windspeed)
@@ -113,5 +115,11 @@ async function renderToScreen() {
 }
 
 
-
+adressInput.addEventListener("change", (e) => {
+	e.preventDefault()
+	if(e.keyCode === 13) {
+		setLocation(e.target.value)
+		renderToScreen()
+	}
+})
 
