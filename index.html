@@ -13,12 +13,12 @@
 		<div id="app-container">
 			<div class="box-container" id="box-adress">
 				<div class="box-heading col-container center-items" id="adress-input-form">
-					<input id="adress-input" type="text"></input>
+					<input id="adress-input" type="text" placeholder="Enter a city"></input>
 				</div>
-				<p id="adress-value">City, Country</p>
+				<p class="value" id="adress-value">City, Country</p>
 				<div class="row-container">
-					<h3 id="date-value">Mo, 05.03.2025</h3>
-					<h3 id="time-value">12:41:11</h3>
+					<h3 class="value" id="date-value">Mo, 05.03.2025</h3>
+					<h3 class="value" id="time-value">12:41:11</h3>
 				</div>
 			</div>
 			<div class="box-container" id="box-sunrise">
@@ -28,11 +28,11 @@
 				<div class="col-container center-items" id="sunrise-container">
 					<div class="col-container center-items">
 						<img src="/assets/images/sunrise.svg" alt="">
-						<p id="sunrise-value">Sunrise</p>
+						<p class="value" id="sunrise-value">Sunrise</p>
 					</div>
 					<div class="col-container center-items">
 						<img src="/assets/images/sunset.svg" alt="">
-						<p id="sunset-value">Sunset</p>
+						<p class="value" id="sunset-value">Sunset</p>
 					</div>
 				</div>
 			</div>
@@ -40,16 +40,16 @@
 				<img id="current-weather-icon" src="/assets/images/weather_icons/rain-snow-showers-night.svg" alt="">
 				<div class="align-bottom">
 					<div class="row-container">
-						<h1 id="current-weather-value"></h1>
-						<h1 id="current-temperature-value"></h1>
+						<h1 class="value" id="current-weather-value">Clear</h1>
+						<h1 class="value" id="current-temperature-value">10°C</h1>
 					</div>
 					<div class="row-container">
 						<p>Min Temp.:</p>
-						<p id="current-min-temp-value"></p>
+						<p class="value" id="current-min-temp-value">10°C</p>
 					</div>
 					<div class="row-container">
 						<p>Max Temp.:</p>
-						<p id="current-max-temp-value"></p>
+						<p class="value" id="current-max-temp-value">10°C</p>
 					</div>
 				</div>
 			</div>
@@ -63,9 +63,9 @@
 						<img id="wind-rose-needle" src="/assets/images/winddirection.svg" alt="">
 					</div>
 					<div id="wind-values" class="col-container center-items">
-						<h1 id="wind-speed-value">10</h1>
-						<p id="wind-speed-unit">km/h</p>
-						<p id="wind-speed-direction">North</p>
+						<h1 class="value"  id="wind-speed-value">10</h1>
+						<p class="value" id="wind-speed-unit">km/h</p>
+						<p class="value" id="wind-speed-direction">North</p>
 					</div>
 				</div>
 			</div>
@@ -78,15 +78,15 @@
 					<div class="col-container center-items">
 						<div class="row-container">
 							<p>Rainchance:</p>
-							<p id="rain-chance-value">0%</p>
+							<p class="value" id="rain-chance-value">0%</p>
 						</div>
 						<div class="row-container">
 							<p>Rainamount:</p>
-							<p id="rain-coverage-value">0</p>
+							<p class="value" id="rain-coverage-value">0mm</p>
 						</div>
 						<div class="row-container">
 							<p>Humidity:</p>
-							<p id="humidity-value">25%</p>
+							<p class="value" id="humidity-value">25%</p>
 						</div>
 					</div>
 				</div>

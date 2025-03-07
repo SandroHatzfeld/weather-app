@@ -25,19 +25,21 @@ const dateOptions = {
 };
 
 // element selection
+const app = document.querySelector("#app-container")
 const unitSelection = document.querySelector("#unit-wrapper")
 const adressInput = document.querySelector("#adress-input")
 const adressInputForm = document.querySelector("#adress-input-form")
 
-let userLocation = "Pirmasens"
+let userLocation = ""
 let selectedUnit = 0
+let data
 
 // **************************************************
 //  Prevent CSS transitions from firing on page load
 // **************************************************
 window.onload = () => {
 	document.querySelector('body').classList.remove('preload')
-	renderToScreen()
+	renderEmptyValues()
 }
 
 // fetch the data depending on the location
@@ -47,9 +49,8 @@ async function getData() {
 		const apiURL = `${baseURL}${userLocation}?unitGroup=${systems[ selectedUnit ]}&key=${key}&contentType=${contentType}`
 
 		const response = await fetch(apiURL)
-		const responsData = await response.json()
-
-		return responsData
+		return await response.json()
+		
 	} catch (err) {
 		console.log(err)
 	}
@@ -59,6 +60,7 @@ async function getData() {
 function setLocation(location) {
 	if (location === undefined || location === "") return
 	userLocation = location
+	getData()
 }
 
 // switch units on click
@@ -70,12 +72,28 @@ unitSelection.addEventListener("click", () => {
 		selectedUnit = 0
 		unitSelection.dataset.unit = "0"
 	}
-	renderToScreen()
+	renderValuesToScreen()
+})
+
+function renderEmptyValues() {
+	app.classList.add("empty")
+}
+
+// input listener for changing the city
+adressInput.addEventListener("change", (e) => {
+	e.preventDefault()
+	if(e.keyCode === 13) {
+		setLocation(e.target.value)
+		renderLoadingValues()
+	}
+})
+adressInput.addEventListener("focusout", (e) => {
+	setLocation(e.target.value)
+	renderLoadingValues()
 })
 
 // replace the placeholder values with actuals ones
-async function renderToScreen() {
-	const data = await getData()
+function renderValuesToScreen() {
 	const currentConditions = data.currentConditions
 	const forecast = data.days
 	
@@ -114,12 +132,12 @@ async function renderToScreen() {
 	$("#humidity-value").text(currentConditions.humidity + " %")
 }
 
+// render loading values 
+async function renderLoadingValues() {
+	app.classList.remove("empty")
+	app.classList.add("loading")
 
-adressInput.addEventListener("change", (e) => {
-	e.preventDefault()
-	if(e.keyCode === 13) {
-		setLocation(e.target.value)
-		renderToScreen()
-	}
-})
-
+	data = await getData()
+	renderValuesToScreen()
+	app.classList.remove("loading")
+}
