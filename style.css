@@ -13,6 +13,9 @@
 	font-size: 30px;
 	font-family: "Zain", Arial, Helvetica, sans-serif;
 }
+* {
+	transition: opacity ease 0.5s;
+}
 
 body,
 h1,
@@ -26,6 +29,7 @@ p {
 h1 {
 	line-height: 1.5rem;
 }
+
 h2 {
 	font-size: 1rem;
 }
@@ -97,25 +101,42 @@ h2 {
 		"sunrise current-weather rain"
 		"forecast forecast forecast";
 }
-.empty .value {
-	color: var(--empty-color);
-	background-color: var(--empty-color);
+
+/* Hide content of boxes if the page is first loaded */
+.empty .box-container * {
+	opacity: 0;
 }
+
+.empty #adress-input-form , #app-wrapper, #app-container, .box-container{
+	visibility: visible;
+	opacity: 1;
+}
+
+.empty #adress-input-form * {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+
+/*  Loading animation for values when searching for city */
 .loading .value {
 	color: transparent;
-	background-image: linear-gradient(298deg, rgba(255,255,255,1) 30%, rgb(146, 180, 223) 50%, rgba(255,255,255,1) 70%);
+	background-image: linear-gradient(298deg, rgba(255, 255, 255, 1) 30%, rgb(146, 180, 223) 50%, rgba(255, 255, 255, 1) 70%);
 	background-repeat: repeat-x;
 	background-size: 200% 100%;
 	border-radius: 0.1rem;
 	animation: loadingBar 3s ease infinite;
 }
+
 @keyframes loadingBar {
 	0% {
 		background-position: 200% 0%;
 	}
+
 	50% {
 		background-position: 0% 0%;
 	}
+
 	100% {
 		background-position: -200% 0%;
 	}
@@ -175,25 +196,52 @@ h2 {
 	padding-top: 2rem;
 	grid-template-rows: 1fr auto;
 }
-
-#box-adress .box-heading {
-	transform: translate(-2.5rem, -1.5rem);
-	padding: 0 1.5rem;
-	overflow: hidden;
-	height: 3rem;
+#adress-input-form {
 	z-index: 20;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+#box-adress .box-heading {
+	transform: translate(-2.5rem, -2.75rem);
+	padding: 0;
+	overflow: hidden;
 }
 
-#adress-input {
-	height: 2.5rem;
+#adress-input, #adress-input-submit {
+	padding: 0 1.5rem;
+	height: 3rem;
 	font-family: "Zain", Arial, Helvetica, sans-serif;
-	font-size: 2rem;
 	font-weight: bold;
+	border: none;
+	outline: none;
+}
+#adress-input {
+	padding: 0 1.5rem;
+	height: 2.5rem;
+	font-size: 2rem;
 	min-width: 300px;
 	max-width: 400px;
 	translate: 0 3px;
-	border: none;
-	outline: none;
+}
+#adress-input-form .box-heading:nth-child(1) {
+	z-index: 10;
+}
+#adress-input-form .box-heading:nth-child(2) {
+	position: absolute;
+	z-index: 5;
+	right: 0;
+	transition: right ease 0.5s;
+	background-color: var(--sun-color);
+}
+#adress-input-form .box-heading:nth-child(2).active {
+	right: calc(-100% + 1.5rem);
+}
+#adress-input-submit {
+	height: 2rem;
+	font-size: 1.5rem;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 #box-adress p,
@@ -209,9 +257,11 @@ h2 {
 #box-sunrise {
 	grid-area: sunrise;
 }
+
 #box-sunrise img {
 	width: 6rem;
 }
+
 #sunrise-container {
 	gap: 1rem;
 }
@@ -220,6 +270,7 @@ h2 {
 #box-current-weather {
 	grid-area: current-weather;
 }
+
 #current-weather-icon {
 	max-height: 300px;
 	justify-self: center;
@@ -230,21 +281,26 @@ h2 {
 #box-wind {
 	grid-area: wind;
 }
+
 #box-wind .row-container {
 	justify-content: space-evenly;
 }
+
 #wind-rose-container {
 	width: 8rem;
 	display: grid;
 	place-items: center;
 }
+
 #wind-rose-container img {
 	grid-row: 1 / 2;
 	grid-column: 1 / 2;
 }
+
 #wind-rose-needle {
 	width: 1em;
 }
+
 #wind-values {
 	text-align: center;
 }
@@ -253,12 +309,15 @@ h2 {
 #box-rain {
 	grid-area: rain;
 }
+
 #rain-image {
 	width: 3rem;
 }
+
 #box-rain>.row-container {
 	justify-content: space-around;
 }
+
 #box-rain .center-items {
 	align-items: start;
 }

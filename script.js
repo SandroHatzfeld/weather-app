@@ -28,7 +28,7 @@ const dateOptions = {
 const app = document.querySelector("#app-container")
 const unitSelection = document.querySelector("#unit-wrapper")
 const adressInput = document.querySelector("#adress-input")
-const adressInputForm = document.querySelector("#adress-input-form")
+const adressInputSubmit = document.querySelector("#adress-input-submit")
 
 let userLocation = ""
 let selectedUnit = 0
@@ -58,9 +58,7 @@ async function getData() {
 
 // helper function to change the location
 function setLocation(location) {
-	if (location === undefined || location === "") return
 	userLocation = location
-	getData()
 }
 
 // switch units on click
@@ -80,16 +78,20 @@ function renderEmptyValues() {
 }
 
 // input listener for changing the city
-adressInput.addEventListener("change", (e) => {
+adressInputSubmit.addEventListener("click", (e) => {
 	e.preventDefault()
-	if(e.keyCode === 13) {
-		setLocation(e.target.value)
-		renderLoadingValues()
-	}
-})
-adressInput.addEventListener("focusout", (e) => {
-	setLocation(e.target.value)
+	if (adressInput.value === undefined || adressInput.value === "") return
+	adressInputSubmit.parentElement.classList.remove("active")
+
+	setLocation(adressInput.value)
 	renderLoadingValues()
+})
+adressInput.addEventListener("input", (e) => {
+	if (adressInput.value === undefined || adressInput.value === "") {
+		adressInputSubmit.parentElement.classList.remove("active")
+	} else {
+		adressInputSubmit.parentElement.classList.add("active")
+	}
 })
 
 // replace the placeholder values with actuals ones
