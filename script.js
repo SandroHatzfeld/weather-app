@@ -89,6 +89,10 @@ adressInput.addEventListener("input", (e) => {
 	}
 })
 
+if(adressInput.value !== "") {
+	adressInputSubmit.parentElement.classList.add("active")
+}
+
 // replace the placeholder values with actuals ones
 function renderValuesToScreen() {
 	const currentConditions = data.currentConditions
@@ -99,6 +103,8 @@ function renderValuesToScreen() {
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
 	const correctedAdress = `${splitAdress[1]}, ${splitAdress[2] ? splitAdress[2] : ""}`
+
+	adressInput.value = splitAdress[0]
 	$("#adress-value").text(correctedAdress)
 	const date = new Date()
 	$("#date-value").text(date.toLocaleDateString(undefined, dateOptions))
@@ -111,17 +117,19 @@ function renderValuesToScreen() {
 	// data for sunrise/sunset
 	$("#sunrise-value").text(currentConditions.sunrise)
 	$("#sunset-value").text(currentConditions.sunset)
-
+	
 	// data for current weather
+	$("#current-weather-icon").attr("src",`./assets/images/weather_icons/${currentConditions.icon}.svg`)
 	$("#current-weather-value").text(currentConditions.conditions)
 	$("#current-temperature-value").html(`${currentConditions.temp}&nbsp;${units[ selectedUnit ].degree}`)
 	$("#current-min-temp-value").html(`${forecast[0].tempmin}&nbsp;${units[ selectedUnit ].degree}`)
 	$("#current-max-temp-value").html(`${forecast[0].tempmax}&nbsp;${units[ selectedUnit ].degree}`)
 
 	// data for wind
+	$("#wind-rose-needle").css("rotate", `${currentConditions.winddir}deg`)
 	$("#wind-speed-value").text(currentConditions.windspeed)
 	$("#wind-speed-unit").text(units[ selectedUnit ].speed)
-	$("#wind-speed-direction").text(currentConditions.winddir)
+	$("#wind-speed-direction").text(translateWindDir(currentConditions.winddir))
 
 	// data for rain
 	$("#rain-chance-value").html(`${currentConditions.precipprob}&nbsp;%`)
@@ -137,4 +145,17 @@ async function renderLoadingValues() {
 	data = await getData()
 	renderValuesToScreen()
 	app.classList.remove("loading")
+}
+
+
+// translate the angles to readable text
+function translateWindDir(angle) {
+	const directions = [
+		"North", "North North East", "North East", "East North East", 
+		"East", "East South East", "South East", "South South East", 
+		"South", "South South West", "South West", "West South West", 
+		"West", "West North West", "North West", "North North West"
+	];
+	const index = Math.round(angle / 22.5) % 16;
+	return directions[index];
 }
