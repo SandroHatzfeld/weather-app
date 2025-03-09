@@ -29,6 +29,7 @@ const app = document.querySelector("#app-container")
 const unitSelection = document.querySelector("#unit-wrapper")
 const adressInput = document.querySelector("#adress-input")
 const adressInputSubmit = document.querySelector("#adress-input-submit")
+const forecastWrapper = document.querySelector("#forecast-wrapper")
 
 let userLocation = ""
 let selectedUnit = 0
@@ -98,7 +99,7 @@ function renderValuesToScreen() {
 	const currentConditions = data.currentConditions
 	const forecast = data.days
 	
-	console.log(data)
+	console.log(forecast)
 	
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
@@ -135,6 +136,17 @@ function renderValuesToScreen() {
 	$("#rain-chance-value").html(`${currentConditions.precipprob}&nbsp;%`)
 	$("#rain-coverage-value").html(`${currentConditions.precip}&nbsp;${units[ selectedUnit ].lengthSmall}`)
 	$("#humidity-value").html(`${currentConditions.humidity}&nbsp;%`)
+
+	// render forecast
+	forecast.forEach(day => {
+		const dayItem = document.createElement("div")
+		dayItem.classList.add("day-item")
+		dayItem.classList.add("col-container")
+		dayItem.innerHTML = dayElement(day)
+
+		forecastWrapper.appendChild(dayItem)
+
+	});
 }
 
 // render loading values 
@@ -158,4 +170,20 @@ function translateWindDir(angle) {
 	];
 	const index = Math.round(angle / 22.5) % 16;
 	return directions[index];
+}
+
+
+function dayElement(day) {
+	
+	return `
+		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
+		<div class="day-bar-container">
+			<div class="day-rain-amount" data-rain-amount="${day.precipprob}"></div>
+			<div class="day-temperature" data-temp="${day.temp}"></div>
+		</div>
+		<div class="day-data">
+			<p class="day-temp">${day.tempmin}&nbsp;${units[ selectedUnit ].degree} / ${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</p>
+			<p class="day-name"></p>
+		</div>
+	`
 }

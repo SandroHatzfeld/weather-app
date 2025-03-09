@@ -8,7 +8,6 @@
 	--text-background-color: #fff;
 	--text-color: #171717;
 	--sun-color: #ffce33;
-	--empty-color: transparent;
 
 	font-size: 30px;
 	font-family: "Zain", Arial, Helvetica, sans-serif;
@@ -324,4 +323,49 @@ h2 {
 /* Box forecast */
 #box-forecast {
 	grid-area: forecast;
+}
+
+#forecast-wrapper {
+	display: flex;
+	gap: 0.5rem;
+	font-size: 0.7rem;
+}
+
+.day-item {
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
+
+.day-icon {
+	width: 1rem;
+	height: 1rem;
+}
+
+.day-bar-container {
+	height: 2rem;
+	display: grid;
+	justify-items: center;
+	align-items: end;
+}
+
+.day-rain-amount {
+	width: 0.25rem;
+	height: 100%;
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+	background-color: var(--background-color);
+	border-radius: 0.125rem;
+}
+
+.day-temperature {
+	height: 0.2rem;
+	width: 0.5rem;
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+	background-color: var(--sun-color);
+}
+
+.day-name {
+	font-weight: bold;
 }
