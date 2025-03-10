@@ -18,12 +18,17 @@ const units = [
 	}
 ]
 const dateOptions = {
-  weekday: "short",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
-
+	weekday: "short",
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+}
+const clockOptions = {
+	hour: "2-digit",
+	minute: "2-digit",
+	second: "2-digit",
+	hour12: false
+}
 // element selection
 const app = document.querySelector("#app-container")
 const unitSelection = document.querySelector("#unit-wrapper")
@@ -34,6 +39,8 @@ const forecastWrapper = document.querySelector("#forecast-wrapper")
 let userLocation = ""
 let selectedUnit = 0
 let data
+let clock
+let clockInterval
 
 // **************************************************
 //  Prevent CSS transitions from firing on page load
@@ -50,7 +57,7 @@ async function getData() {
 
 		const response = await fetch(apiURL)
 		return await response.json()
-		
+
 	} catch (err) {
 		console.log(err)
 	}
@@ -90,7 +97,7 @@ adressInput.addEventListener("input", (e) => {
 	}
 })
 
-if(adressInput.value !== "") {
+if (adressInput.value !== "") {
 	adressInputSubmit.parentElement.classList.add("active")
 }
 
@@ -98,33 +105,38 @@ if(adressInput.value !== "") {
 function renderValuesToScreen() {
 	const currentConditions = data.currentConditions
 	const forecast = data.days
-	
-	console.log(forecast)
-	
+
+	console.log(data)
+
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
-	const correctedAdress = `${splitAdress[1]}, ${splitAdress[2] ? splitAdress[2] : ""}`
+	const correctedAdress = `${splitAdress[ 1 ]}, ${splitAdress[ 2 ] ? splitAdress[ 2 ] : ""}`
 
-	adressInput.value = splitAdress[0]
+	adressInput.value = splitAdress[ 0 ]
 	$("#adress-value").text(correctedAdress)
-	const date = new Date()
-	$("#date-value").text(date.toLocaleDateString(undefined, dateOptions))
+	const fetchedDate = new Date(currentConditions.datetimeEpoch * 1000) // Convert from seconds to milliseconds
+	$("#date-value").text(fetchedDate.toLocaleDateString(undefined, dateOptions))
 
-	setInterval(() => {	
-		const date = new Date()
-		$("#time-value").text(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`)
-	}, 1000);
+	clearInterval(clockInterval)
+	let locationTime = new Date()
+	const timezoneOffset = (locationTime.getTimezoneOffset() / 60)
+	 
+	locationTime.setHours(locationTime.getHours() + data.tzoffset + timezoneOffset)
+	clockInterval = setInterval(() => {
+		locationTime.setSeconds(locationTime.getSeconds() + 1)
+		$("#time-value").text(locationTime.toLocaleTimeString(undefined, clockOptions))
+	}, 1000)
 
 	// data for sunrise/sunset
 	$("#sunrise-value").text(currentConditions.sunrise)
 	$("#sunset-value").text(currentConditions.sunset)
-	
+
 	// data for current weather
-	$("#current-weather-icon").attr("src",`./assets/images/weather_icons/${currentConditions.icon}.svg`)
+	$("#current-weather-icon").attr("src", `./assets/images/weather_icons/${currentConditions.icon}.svg`)
 	$("#current-weather-value").text(currentConditions.conditions)
 	$("#current-temperature-value").html(`${currentConditions.temp}&nbsp;${units[ selectedUnit ].degree}`)
-	$("#current-min-temp-value").html(`${forecast[0].tempmin}&nbsp;${units[ selectedUnit ].degree}`)
-	$("#current-max-temp-value").html(`${forecast[0].tempmax}&nbsp;${units[ selectedUnit ].degree}`)
+	$("#current-min-temp-value").html(`${forecast[ 0 ].tempmin}&nbsp;${units[ selectedUnit ].degree}`)
+	$("#current-max-temp-value").html(`${forecast[ 0 ].tempmax}&nbsp;${units[ selectedUnit ].degree}`)
 
 	// data for wind
 	$("#wind-rose-needle").css("rotate", `${currentConditions.winddir}deg`)
@@ -139,18 +151,18 @@ function renderValuesToScreen() {
 
 	// render forecast
 	forecastWrapper.innerHTML = ""
-	forecast.forEach((day,index) => {
-		if(index > 0) {
+	forecast.forEach((day, index) => {
+		if (index > 0) {
 
 			const dayItem = document.createElement("div")
 			dayItem.classList.add("day-item")
 			dayItem.classList.add("col-container")
 			dayItem.innerHTML = dayElement(day)
-	
+
 			forecastWrapper.appendChild(dayItem)
 		}
 
-	});
+	})
 }
 
 // render loading values 
@@ -167,13 +179,13 @@ async function renderLoadingValues() {
 // translate the angles to readable text
 function translateWindDir(angle) {
 	const directions = [
-		"North", "North North East", "North East", "East North East", 
-		"East", "East South East", "South East", "South South East", 
-		"South", "South South West", "South West", "West South West", 
+		"North", "North North East", "North East", "East North East",
+		"East", "East South East", "South East", "South South East",
+		"South", "South South West", "South West", "West South West",
 		"West", "West North West", "North West", "North North West"
-	];
-	const index = Math.round(angle / 22.5) % 16;
-	return directions[index];
+	]
+	const index = Math.round(angle / 22.5) % 16
+	return directions[ index ]
 }
 
 
