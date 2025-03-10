@@ -138,13 +138,17 @@ function renderValuesToScreen() {
 	$("#humidity-value").html(`${currentConditions.humidity}&nbsp;%`)
 
 	// render forecast
-	forecast.forEach(day => {
-		const dayItem = document.createElement("div")
-		dayItem.classList.add("day-item")
-		dayItem.classList.add("col-container")
-		dayItem.innerHTML = dayElement(day)
+	forecastWrapper.innerHTML = ""
+	forecast.forEach((day,index) => {
+		if(index > 0) {
 
-		forecastWrapper.appendChild(dayItem)
+			const dayItem = document.createElement("div")
+			dayItem.classList.add("day-item")
+			dayItem.classList.add("col-container")
+			dayItem.innerHTML = dayElement(day)
+	
+			forecastWrapper.appendChild(dayItem)
+		}
 
 	});
 }
@@ -174,7 +178,7 @@ function translateWindDir(angle) {
 
 
 function dayElement(day) {
-	
+
 	return `
 		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
 		<div class="day-bar-container">

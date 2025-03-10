@@ -272,7 +272,7 @@ h2 {
 #current-weather-icon {
 	max-height: 300px;
 	justify-self: center;
-	transform: scale(1.6) translateY(-1rem);
+	transform: scale(2);
 }
 
 /* Box wind */
@@ -326,20 +326,25 @@ h2 {
 }
 
 #forecast-wrapper {
+	margin-top: 0.5rem;
 	display: flex;
 	gap: 0.5rem;
 	font-size: 0.7rem;
+	overflow-x: scroll;
 }
 
 .day-item {
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	background-color: var(--app-background-color);
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
 }
 
 .day-icon {
-	width: 1rem;
-	height: 1rem;
+	width: 2rem;
+	height: 2rem;
 }
 
 .day-bar-container {
