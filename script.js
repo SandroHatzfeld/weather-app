@@ -23,6 +23,12 @@ const dateOptions = {
 	month: "long",
 	day: "numeric",
 }
+const dateOptionsForecast = {
+	weekday: "short",
+	year: "numeric",
+	month: "numeric",
+	day: "numeric",
+}
 const clockOptions = {
 	hour: "2-digit",
 	minute: "2-digit",
@@ -39,7 +45,6 @@ const forecastWrapper = document.querySelector("#forecast-wrapper")
 let userLocation = ""
 let selectedUnit = 0
 let data
-let clock
 let clockInterval
 
 // **************************************************
@@ -161,8 +166,35 @@ function renderValuesToScreen() {
 
 			forecastWrapper.appendChild(dayItem)
 		}
-
 	})
+
+	// select the bars to move the bars
+	const rainBars = document.querySelectorAll(".day-rain-amount")
+	const temperatureBars = document.querySelectorAll(".day-temperature")
+
+	rainBars.forEach(bar => {
+		bar.style.height = `${mapNumRange(bar.dataset.rainAmount, 0, 50, 0, 100)}%`
+	})
+	
+	const lineSVG = document.createElementNS('http://www.w3.org/2000/svg',"svg")
+	lineSVG.setAttribute("id", "day-line-svg")
+	lineSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+	lineSVG.setAttribute("viewBox", "0 -50 1200 200")
+
+	const line = document.createElementNS('http://www.w3.org/2000/svg','polyline')
+	line.setAttribute("stroke", "black")
+	line.setAttribute("fill", "none")
+	let points = []
+	temperatureBars.forEach((bar, index) => {
+		bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, -20, 50, -80, 0)}px`
+		const x = forecastWrapper.offsetWidth / forecastWrapper.children.length * index
+		const y = mapNumRange(bar.dataset.temp, -20, 50, 50, -50)
+		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
+	})
+	line.setAttribute("points", points.join(""))
+	
+	lineSVG.appendChild(line)
+	forecastWrapper.appendChild(lineSVG)
 }
 
 // render loading values 
@@ -188,8 +220,12 @@ function translateWindDir(angle) {
 	return directions[ index ]
 }
 
-
+// fill elements with data and return string for forecast
 function dayElement(day) {
+	const date = new Date(day.datetimeEpoch * 1000)
+	const weekday = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[0]
+	const shortDaySeparated = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[1].split(".")
+	const shortDayNumber = `${shortDaySeparated[0]}, ${shortDaySeparated[1]}.`
 
 	return `
 		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
@@ -199,7 +235,10 @@ function dayElement(day) {
 		</div>
 		<div class="day-data">
 			<p class="day-temp">${day.tempmin}&nbsp;${units[ selectedUnit ].degree} / ${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</p>
-			<p class="day-name"></p>
+			<p class="day-name">${weekday}<br>${shortDayNumber}</p>
 		</div>
 	`
 }
+
+const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
+	((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
