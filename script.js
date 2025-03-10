@@ -125,7 +125,7 @@ function renderValuesToScreen() {
 	clearInterval(clockInterval)
 	let locationTime = new Date()
 	const timezoneOffset = (locationTime.getTimezoneOffset() / 60)
-	 
+
 	locationTime.setHours(locationTime.getHours() + data.tzoffset + timezoneOffset)
 	clockInterval = setInterval(() => {
 		locationTime.setSeconds(locationTime.getSeconds() + 1)
@@ -175,24 +175,28 @@ function renderValuesToScreen() {
 	rainBars.forEach(bar => {
 		bar.style.height = `${mapNumRange(bar.dataset.rainAmount, 0, 50, 0, 100)}%`
 	})
-	
-	const lineSVG = document.createElementNS('http://www.w3.org/2000/svg',"svg")
+
+
+	const lineSVG = document.createElementNS('http://www.w3.org/2000/svg', "svg")
 	lineSVG.setAttribute("id", "day-line-svg")
 	lineSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-	lineSVG.setAttribute("viewBox", "0 -50 1200 200")
+	lineSVG.setAttribute("viewBox", `0 -72 1650 ${forecastWrapper.offsetHeight}`)
 
-	const line = document.createElementNS('http://www.w3.org/2000/svg','polyline')
+	const line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline')
 	line.setAttribute("stroke", "black")
 	line.setAttribute("fill", "none")
 	let points = []
+
+	
+
 	temperatureBars.forEach((bar, index) => {
-		bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, -20, 50, -80, 0)}px`
-		const x = forecastWrapper.offsetWidth / forecastWrapper.children.length * index
-		const y = mapNumRange(bar.dataset.temp, -20, 50, 50, -50)
+		bar.style.translate = `0 ${-bar.dataset.temp}px`
+		const x = forecastWrapper.offsetWidth / (forecastWrapper.children.length-1) * index
+		const y = parseFloat(-bar.dataset.temp)
 		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
 	})
 	line.setAttribute("points", points.join(""))
-	
+
 	lineSVG.appendChild(line)
 	forecastWrapper.appendChild(lineSVG)
 }
@@ -223,14 +227,14 @@ function translateWindDir(angle) {
 // fill elements with data and return string for forecast
 function dayElement(day) {
 	const date = new Date(day.datetimeEpoch * 1000)
-	const weekday = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[0]
-	const shortDaySeparated = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[1].split(".")
-	const shortDayNumber = `${shortDaySeparated[0]}, ${shortDaySeparated[1]}.`
+	const weekday = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 0 ]
+	const shortDaySeparated = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 1 ].split(".")
+	const shortDayNumber = `${shortDaySeparated[ 0 ]}, ${shortDaySeparated[ 1 ]}.`
 
 	return `
 		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
 		<div class="day-bar-container">
-			<div class="day-rain-amount" data-rain-amount="${day.precipprob}"></div>
+			<div class="day-rain-amount" data-rain-amount="${day.precipcover}"></div>
 			<div class="day-temperature" data-temp="${day.temp}"></div>
 		</div>
 		<div class="day-data">
@@ -241,4 +245,16 @@ function dayElement(day) {
 }
 
 const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
-	((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+	((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
+
+
+function findPos(obj) {
+	var curleft = curtop = 0
+	if (obj.offsetParent) {
+		do {
+			curleft += obj.offsetLeft
+			curtop += obj.offsetTop
+		} while (obj = obj.offsetParent)
+		return [ curleft, curtop ]
+	}
+}

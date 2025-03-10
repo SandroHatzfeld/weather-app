@@ -327,7 +327,8 @@ h2 {
 
 #forecast-wrapper {
 	margin-top: 0.5rem;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(14, auto);
 	gap: 0.5rem;
 	font-size: 0.7rem;
 	position: relative;
@@ -337,6 +338,7 @@ h2 {
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
+	z-index: 5;
 }
 
 .day-icon {
@@ -349,7 +351,7 @@ h2 {
 	height: 2rem;
 	display: grid;
 	justify-items: center;
-	align-items: end;
+	position: relative;
 }
 
 .day-rain-amount {
@@ -357,6 +359,7 @@ h2 {
 	height: 100%;
 	grid-row: 1 / 2;
 	grid-column: 1 / 2;
+	align-self: flex-end;
 	background-color: var(--background-color);
 	border-radius: 0.125rem;
 }
@@ -366,7 +369,9 @@ h2 {
 	width: 0.5rem;
 	grid-row: 1 / 2;
 	grid-column: 1 / 2;
+	align-self: center;
 	background-color: var(--sun-color);
+	position: absolute;
 }
 
 .day-data p {
@@ -378,7 +383,10 @@ h2 {
 }
 
 #day-line-svg {
-	width: 100%;
+	margin: 0 auto;
+	width: calc(100% - 3rem);
 	height: 100%;
 	position: absolute;
+	z-index: 0;
+	justify-self: center;
 }
