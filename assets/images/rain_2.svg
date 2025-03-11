@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.6 75.62">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #37b0e4;
-        fill-rule: evenodd;
-      }
-    </style>
-  </defs>
-  <g id="Ebene_1-2" data-name="Ebene 1">
-    <g>
-      <path class="cls-1" d="M30.46,36.13c0,.5-.03.99-.08,1.48-.73,7.71-7.24,13.74-15.16,13.74S.82,45.33.08,37.61c-.05-.49-.08-.98-.08-1.48v-1.63C0,19.91,15.23,0,15.23,0c0,0,15.24,19.94,15.24,34.5v1.63Z"/>
-      <path class="cls-1" d="M62.6,60.39c0,.5-.03.99-.08,1.48-.73,7.71-7.24,13.74-15.16,13.74s-14.41-6.03-15.14-13.74c-.05-.49-.08-.98-.08-1.48v-1.63c0-14.59,15.23-34.5,15.23-34.5,0,0,15.24,19.94,15.24,34.5v1.63Z"/>
-    </g>
-  </g>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%" height="100%" viewBox="0 0 417 417" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="Ebene_1-2"><g><path d="M204.833,201.333c0,2.084 -0.125,4.125 -0.333,6.167c-3.042,32.125 -30.167,57.25 -63.167,57.25c-33,0 -60,-25.083 -63.083,-57.25c-0.208,-2.042 -0.333,-4.083 -0.333,-6.167l-0,-6.791c-0,-60.792 63.458,-143.75 63.458,-143.75c0,-0 63.5,83.083 63.5,143.75l0,6.791l-0.042,0Z" style="fill:#37b0e4;"/><path d="M338.75,302.417c0,2.083 -0.125,4.125 -0.333,6.166c-3.042,32.125 -30.167,57.25 -63.167,57.25c-33,0 -60.042,-25.125 -63.083,-57.25c-0.209,-2.041 -0.334,-4.083 -0.334,-6.166l0,-6.792c0,-60.792 63.459,-143.75 63.459,-143.75c-0,-0 63.5,83.083 63.5,143.75l-0,6.792l-0.042,-0Z" style="fill:#37b0e4;"/></g></g></svg>

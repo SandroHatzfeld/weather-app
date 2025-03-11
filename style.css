@@ -309,7 +309,7 @@ h2 {
 }
 
 #rain-image {
-	width: 3rem;
+	width: 5rem;
 }
 
 #box-rain>.row-container {
@@ -327,19 +327,16 @@ h2 {
 
 #forecast-wrapper {
 	margin-top: 0.5rem;
+	display: grid;
+	grid-template-columns: repeat(14, auto);
+	gap: 0.5rem;
+	font-size: 0.7rem;
+	position: relative;
 	overflow-y: hidden;
 	overflow-x: scroll;
 }
-#forecast-container {
-	font-size: 0.7rem;
-	display: flex;
-	position: relative;
-	gap: 0.5rem;
-	max-width: 99.5%;
-}
 
 .day-item {
-	width: 3rem;
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
@@ -347,6 +344,8 @@ h2 {
 }
 
 .day-icon {
+	background-color: var(--app-background-color);
+	border-radius: 0.25rem;
 	width: 2rem;
 	height: 2rem;
 }
@@ -390,9 +389,10 @@ h2 {
 #day-line-svg {
 	height: 100%;
 	width: 100%;
-	left: 0.25rem;
-	top: 0.1rem;
 	position: absolute;
 	margin: 0;
 	pointer-events: none;
+}
+#day-line-element {
+	translate: 0.25rem 0.1rem;
 }

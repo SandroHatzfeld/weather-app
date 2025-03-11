@@ -41,7 +41,6 @@ const unitSelection = document.querySelector("#unit-wrapper")
 const adressInput = document.querySelector("#adress-input")
 const adressInputSubmit = document.querySelector("#adress-input-submit")
 const forecastWrapper = document.querySelector("#forecast-wrapper")
-const forecastContainer = document.querySelector("#forecast-container")
 
 let userLocation = ""
 let selectedUnit = 0
@@ -127,10 +126,14 @@ function renderValuesToScreen() {
 
 	// data for adress
 	const splitAdress = data.resolvedAddress.split(",")
-	const correctedAdress = `${splitAdress[ 1 ]}, ${splitAdress[ 2 ] ? splitAdress[ 2 ] : ""}`
+	if (splitAdress[ 1 ] !== undefined) {
+		const correctedAdress = `${splitAdress.length > 2 ? splitAdress[ 1 ] + "," : splitAdress[ 1 ]} ${splitAdress[ 2 ] ? splitAdress[ 2 ] : ""}`
+		$("#adress-value").text(correctedAdress)
+	} else {
+		$("#adress-value").text("")
+	}
 
 	adressInput.value = splitAdress[ 0 ]
-	$("#adress-value").text(correctedAdress)
 	const fetchedDate = new Date(currentConditions.datetimeEpoch * 1000) // Convert from seconds to milliseconds
 	$("#date-value").text(fetchedDate.toLocaleDateString(undefined, dateOptions))
 
@@ -162,12 +165,13 @@ function renderValuesToScreen() {
 	$("#wind-speed-direction").text(translateWindDir(currentConditions.winddir))
 
 	// data for rain
+	$("#rain-image").attr("src", `./assets/images/${setRainImage(currentConditions.precipprob, currentConditions.preciptype)}.svg`)
 	$("#rain-chance-value").html(`${currentConditions.precipprob}&nbsp;%`)
-	$("#rain-coverage-value").html(`${currentConditions.precip}&nbsp;${units[ selectedUnit ].lengthSmall}`)
+	$("#rain-coverage-value").html(currentConditions.precip ? `${currentConditions.precip}&nbsp;${units[ selectedUnit ].lengthSmall}` : `0&nbsp;${units[ selectedUnit ].lengthSmall}`)
 	$("#humidity-value").html(`${currentConditions.humidity}&nbsp;%`)
 
 	// render forecast
-	forecastContainer.innerHTML = ""
+	forecastWrapper.innerHTML = ""
 	forecast.forEach((day, index) => {
 		if (index > 0) {
 
@@ -176,7 +180,7 @@ function renderValuesToScreen() {
 			dayItem.classList.add("col-container")
 			dayItem.innerHTML = dayElement(day)
 
-			forecastContainer.appendChild(dayItem)
+			forecastWrapper.appendChild(dayItem)
 		}
 	})
 
@@ -189,12 +193,12 @@ function renderValuesToScreen() {
 	})
 	// depending on unit map different range to each temp bar and translate it
 	temperatureBars.forEach((bar) => {
-		if(selectedUnit === 0) {
-			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, -20, 40, -30, 30)}px`
+		if (selectedUnit === 0) {
+			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, -20, 40, 30, -30)}px`
 		} else {
-			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, 0, 120, -30, 30)}px`
+			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, 0, 120, 30, -30)}px`
 		}
-	})	 
+	})
 
 	// create line svg
 	const lineSVG = document.createElementNS('http://www.w3.org/2000/svg', "svg")
@@ -208,7 +212,7 @@ function renderValuesToScreen() {
 	line.setAttribute("fill", "none")
 
 	lineSVG.appendChild(line)
-	forecastContainer.appendChild(lineSVG)
+	forecastWrapper.appendChild(lineSVG)
 }
 
 // render loading values 
@@ -220,7 +224,7 @@ async function renderLoadingValues() {
 	renderValuesToScreen()
 	setTimeout(() => {
 		lineRender()
-	}, 100); 
+	}, 100)
 	app.classList.remove("loading")
 }
 
@@ -267,14 +271,27 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
 // separated to be called on window resize
 function lineRender() {
 	const temperatureBars = document.querySelectorAll(".day-temperature")
-	
+
 	let points = []
-	temperatureBars.forEach((bar) => {	
-		const x =  bar.getBoundingClientRect().left - forecastContainer.getBoundingClientRect().left
-		const y =  bar.getBoundingClientRect().top - forecastContainer.getBoundingClientRect().top
+	temperatureBars.forEach((bar) => {
+		const x = bar.getBoundingClientRect().left - forecastWrapper.getBoundingClientRect().left
+		const y = bar.getBoundingClientRect().top - forecastWrapper.getBoundingClientRect().top
 		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
 	})
 
 	$("#day-line-element").attr("points", points.join(""))
-	
+
+}
+
+function setRainImage(chance, type) {
+	if (type === "snow") {
+		return "rain_snow"
+	}
+	if (chance < 25) {
+		return "rain_1"
+	} else if (chance > 25 && chance < 75) {
+		return "rain_2"
+	} else {
+		return "rain_3"
+	}
 }
