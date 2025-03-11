@@ -41,6 +41,7 @@ const unitSelection = document.querySelector("#unit-wrapper")
 const adressInput = document.querySelector("#adress-input")
 const adressInputSubmit = document.querySelector("#adress-input-submit")
 const forecastWrapper = document.querySelector("#forecast-wrapper")
+const forecastContainer = document.querySelector("#forecast-container")
 
 let userLocation = ""
 let selectedUnit = 0
@@ -108,6 +109,11 @@ adressInput.addEventListener("input", (e) => {
 	}
 })
 
+forecastWrapper.addEventListener("scroll", (e) => {
+	lineRender()
+})
+
+// test if the input is empty after a page refresh
 if (adressInput.value !== "") {
 	adressInputSubmit.parentElement.classList.add("active")
 }
@@ -161,7 +167,7 @@ function renderValuesToScreen() {
 	$("#humidity-value").html(`${currentConditions.humidity}&nbsp;%`)
 
 	// render forecast
-	forecastWrapper.innerHTML = ""
+	forecastContainer.innerHTML = ""
 	forecast.forEach((day, index) => {
 		if (index > 0) {
 
@@ -170,7 +176,7 @@ function renderValuesToScreen() {
 			dayItem.classList.add("col-container")
 			dayItem.innerHTML = dayElement(day)
 
-			forecastWrapper.appendChild(dayItem)
+			forecastContainer.appendChild(dayItem)
 		}
 	})
 
@@ -202,7 +208,7 @@ function renderValuesToScreen() {
 	line.setAttribute("fill", "none")
 
 	lineSVG.appendChild(line)
-	document.querySelector("body").appendChild(lineSVG)
+	forecastContainer.appendChild(lineSVG)
 }
 
 // render loading values 
@@ -263,11 +269,12 @@ function lineRender() {
 	const temperatureBars = document.querySelectorAll(".day-temperature")
 	
 	let points = []
-	temperatureBars.forEach((bar) => {
-		const x = bar.getBoundingClientRect().left
-		const y = bar.getBoundingClientRect().top
+	temperatureBars.forEach((bar) => {	
+		const x =  bar.getBoundingClientRect().left - forecastContainer.getBoundingClientRect().left
+		const y =  bar.getBoundingClientRect().top - forecastContainer.getBoundingClientRect().top
 		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
 	})
 
-	document.querySelector("#day-line-element").setAttribute("points", points.join(""))
+	$("#day-line-element").attr("points", points.join(""))
+	
 }
