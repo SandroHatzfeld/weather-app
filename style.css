@@ -332,6 +332,8 @@ h2 {
 	gap: 0.5rem;
 	font-size: 0.7rem;
 	position: relative;
+	overflow-y: hidden;
+	overflow-x: scroll;
 }
 
 .day-item {
@@ -366,7 +368,7 @@ h2 {
 
 .day-temperature {
 	height: 0.2rem;
-	width: 0.5rem;
+	width: 0.75rem;
 	grid-row: 1 / 2;
 	grid-column: 1 / 2;
 	align-self: center;
@@ -383,10 +385,11 @@ h2 {
 }
 
 #day-line-svg {
-	margin: 0 auto;
-	width: calc(100% - 3rem);
 	height: 100%;
-	position: absolute;
-	z-index: 0;
-	justify-self: center;
+	width: 100%;
+	left: 0.25rem;
+	top: 0.1rem;
+	position: fixed;
+	margin: 0;
+	pointer-events: none;
 }

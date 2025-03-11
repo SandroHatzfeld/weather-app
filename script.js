@@ -54,6 +54,10 @@ window.onload = () => {
 	document.querySelector('body').classList.remove('preload')
 }
 
+window.addEventListener("resize", () => {
+	lineRender()
+})
+
 // fetch the data depending on the location
 async function getData() {
 	try {
@@ -82,7 +86,9 @@ unitSelection.addEventListener("click", () => {
 		selectedUnit = 0
 		unitSelection.dataset.unit = "0"
 	}
-	renderValuesToScreen()
+
+	renderLoadingValues()
+	lineRender()
 })
 
 // input listener for changing the city
@@ -173,32 +179,30 @@ function renderValuesToScreen() {
 	const temperatureBars = document.querySelectorAll(".day-temperature")
 
 	rainBars.forEach(bar => {
-		bar.style.height = `${mapNumRange(bar.dataset.rainAmount, 0, 50, 0, 100)}%`
+		bar.style.height = `${bar.dataset.rainAmount}%`
 	})
+	// depending on unit map different range to each temp bar and translate it
+	temperatureBars.forEach((bar) => {
+		if(selectedUnit === 0) {
+			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, -20, 40, -30, 30)}px`
+		} else {
+			bar.style.translate = `0 ${mapNumRange(bar.dataset.temp, 0, 120, -30, 30)}px`
+		}
+	})	 
 
-
+	// create line svg
 	const lineSVG = document.createElementNS('http://www.w3.org/2000/svg', "svg")
 	lineSVG.setAttribute("id", "day-line-svg")
 	lineSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-	lineSVG.setAttribute("viewBox", `0 -72 1650 ${forecastWrapper.offsetHeight}`)
 
 	const line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline')
-	line.setAttribute("stroke", "black")
+	line.setAttribute("id", "day-line-element")
+	line.setAttribute("stroke", "white")
+	line.setAttribute("stroke-width", "3")
 	line.setAttribute("fill", "none")
-	let points = []
-
-	
-
-	temperatureBars.forEach((bar, index) => {
-		bar.style.translate = `0 ${-bar.dataset.temp}px`
-		const x = forecastWrapper.offsetWidth / (forecastWrapper.children.length-1) * index
-		const y = parseFloat(-bar.dataset.temp)
-		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
-	})
-	line.setAttribute("points", points.join(""))
 
 	lineSVG.appendChild(line)
-	forecastWrapper.appendChild(lineSVG)
+	document.querySelector("body").appendChild(lineSVG)
 }
 
 // render loading values 
@@ -208,6 +212,9 @@ async function renderLoadingValues() {
 
 	data = await getData()
 	renderValuesToScreen()
+	setTimeout(() => {
+		lineRender()
+	}, 100); 
 	app.classList.remove("loading")
 }
 
@@ -226,10 +233,11 @@ function translateWindDir(angle) {
 
 // fill elements with data and return string for forecast
 function dayElement(day) {
+	// separate date string to only display needes information
 	const date = new Date(day.datetimeEpoch * 1000)
 	const weekday = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 0 ]
 	const shortDaySeparated = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 1 ].split(".")
-	const shortDayNumber = `${shortDaySeparated[ 0 ]}, ${shortDaySeparated[ 1 ]}.`
+	const shortDayNumber = `${shortDaySeparated[ 0 ]}. ${shortDaySeparated[ 1 ]}.`
 
 	return `
 		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
@@ -238,23 +246,28 @@ function dayElement(day) {
 			<div class="day-temperature" data-temp="${day.temp}"></div>
 		</div>
 		<div class="day-data">
-			<p class="day-temp">${day.tempmin}&nbsp;${units[ selectedUnit ].degree} / ${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</p>
+			<p class="day-temp">${day.tempmin}&nbsp;${units[ selectedUnit ].degree}<br>${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</p>
 			<p class="day-name">${weekday}<br>${shortDayNumber}</p>
 		</div>
 	`
 }
 
+// helper to map a range of values to another range
 const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
 	((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
 
 
-function findPos(obj) {
-	var curleft = curtop = 0
-	if (obj.offsetParent) {
-		do {
-			curleft += obj.offsetLeft
-			curtop += obj.offsetTop
-		} while (obj = obj.offsetParent)
-		return [ curleft, curtop ]
-	}
+// render the line of the temperature scale
+// separated to be called on window resize
+function lineRender() {
+	const temperatureBars = document.querySelectorAll(".day-temperature")
+	
+	let points = []
+	temperatureBars.forEach((bar) => {
+		const x = bar.getBoundingClientRect().left
+		const y = bar.getBoundingClientRect().top
+		points.push(`${x.toFixed(2)},${y.toFixed(2)} `)
+	})
+
+	document.querySelector("#day-line-element").setAttribute("points", points.join(""))
 }
