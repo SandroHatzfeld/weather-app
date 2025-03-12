@@ -1,0 +1,844 @@
+#weather-u-moon_to {
+	animation: weather-u-moon_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-moon_to__to {
+	0% {
+		transform: translate(627.49997px, 627.500015px);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: translate(674.285158px, 290.032084px);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: translate(679.823433px, 466.585678px)
+	}
+
+	100% {
+		transform: translate(679.823433px, 466.585678px)
+	}
+}
+
+#weather-u-moon_ts {
+	animation: weather-u-moon_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-moon_ts__ts {
+	0% {
+		transform: scale(1.718334, 1.718334);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-sun_to {
+	animation: weather-u-sun_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-sun_to__to {
+	0% {
+		transform: translate(627.49997px, 627.500015px);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: translate(674.285158px, 290.032084px);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: translate(679.823433px, 466.585678px)
+	}
+
+	100% {
+		transform: translate(679.823433px, 466.585678px)
+	}
+}
+
+#weather-u-sun_ts {
+	animation: weather-u-sun_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-sun_ts__ts {
+	0% {
+		transform: scale(1.718334, 1.718334);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-lightning_to {
+	animation: weather-u-lightning_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-lightning_to__to {
+	0% {
+		offset-distance: 0%
+	}
+
+	64% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+	}
+
+	80% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-lightning {
+	animation: weather-u-lightning_c_o 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-lightning_c_o {
+	0% {
+		opacity: 0
+	}
+
+	40% {
+		opacity: 0
+	}
+
+	60% {
+		opacity: 1
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+#weather-u-hail_to {
+	animation: weather-u-hail_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-hail_to__to {
+	0% {
+		transform: translate(679.489276px, 626.471705px)
+	}
+
+	84% {
+		transform: translate(679.489276px, 626.471705px);
+		animation-timing-function: cubic-bezier(0.065, 0.69, 0.32, 1)
+	}
+
+	94% {
+		transform: translate(607.931331px, 1028.990685px)
+	}
+
+	100% {
+		transform: translate(607.931331px, 1028.990685px)
+	}
+}
+
+#weather-u-hail2_to {
+	animation: weather-u-hail2_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-hail2_to__to {
+	0% {
+		transform: translate(431.003046px, 593.251621px)
+	}
+
+	80% {
+		transform: translate(431.003046px, 593.251621px);
+		animation-timing-function: cubic-bezier(0.065, 0.69, 0.32, 1)
+	}
+
+	90% {
+		transform: translate(439.085741px, 866.567315px)
+	}
+
+	100% {
+		transform: translate(439.085741px, 866.567315px)
+	}
+}
+
+#weather-u-hail3_to {
+	animation: weather-u-hail3_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-hail3_to__to {
+	0% {
+		transform: translate(951.893968px, 581.29239px)
+	}
+
+	80% {
+		transform: translate(951.893968px, 581.29239px);
+		animation-timing-function: cubic-bezier(0.065, 0.69, 0.32, 1)
+	}
+
+	96% {
+		transform: translate(891.463469px, 880.730654px)
+	}
+
+	100% {
+		transform: translate(891.463469px, 880.730654px)
+	}
+}
+
+#weather-u-raingroup {
+	animation: weather-u-raingroup_c_o 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-raingroup_c_o {
+	0% {
+		opacity: 0
+	}
+
+	20% {
+		opacity: 0
+	}
+
+	40% {
+		opacity: 1
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+#weather-u-rain_to {
+	animation: weather-u-rain_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain_to__to {
+	0% {
+		transform: translate(870.72735px, 528.140256px)
+	}
+
+	44% {
+		transform: translate(870.72735px, 528.140256px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	60% {
+		transform: translate(705.477486px, 964.983276px)
+	}
+
+	70% {
+		transform: translate(705.462304px, 965.505161px)
+	}
+
+	100% {
+		transform: translate(705.462304px, 965.505161px)
+	}
+}
+
+#weather-u-rain_ts {
+	animation: weather-u-rain_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain_ts__ts {
+	0% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	60% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	70% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+
+	100% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+}
+
+#weather-u-rain2_to {
+	animation: weather-u-rain2_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain2_to__to {
+	0% {
+		transform: translate(673.21035px, 528.140256px)
+	}
+
+	46% {
+		transform: translate(673.21035px, 528.140256px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	60% {
+		transform: translate(507.960479px, 964.983276px)
+	}
+
+	70% {
+		transform: translate(507.945304px, 965.505246px)
+	}
+
+	100% {
+		transform: translate(507.945304px, 965.505246px)
+	}
+}
+
+#weather-u-rain2_ts {
+	animation: weather-u-rain2_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain2_ts__ts {
+	0% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	60% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	70% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+
+	100% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+}
+
+#weather-u-rain3_to {
+	animation: weather-u-rain3_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain3_to__to {
+	0% {
+		transform: translate(726.625347px, 633.478207px)
+	}
+
+	40% {
+		transform: translate(726.625347px, 633.478207px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	54% {
+		transform: translate(586.575506px, 1005.155975px)
+	}
+
+	60% {
+		transform: translate(559.919964px, 1076.324906px)
+	}
+
+	70% {
+		transform: translate(561.360806px, 1071.83246px)
+	}
+
+	100% {
+		transform: translate(561.360806px, 1071.83246px)
+	}
+}
+
+#weather-u-rain3_ts {
+	animation: weather-u-rain3_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain3_ts__ts {
+	0% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	60% {
+		transform: rotate(-9deg) scale(1, 1)
+	}
+
+	70% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+
+	100% {
+		transform: rotate(-9deg) scale(0, 0)
+	}
+}
+
+#weather-u-rain4_to {
+	animation: weather-u-rain4_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain4_to__to {
+	0% {
+		transform: translate(475.69335px, 528.140256px)
+	}
+
+	46% {
+		transform: translate(475.69335px, 528.140256px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	60% {
+		transform: translate(335.643509px, 899.818024px)
+	}
+
+	100% {
+		transform: translate(335.643509px, 899.818024px)
+	}
+}
+
+#weather-u-rain5_to {
+	animation: weather-u-rain5_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain5_to__to {
+	0% {
+		transform: translate(529.108847px, 633.478207px)
+	}
+
+	44% {
+		transform: translate(529.108847px, 633.478207px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	58% {
+		transform: translate(389.059006px, 1005.155975px)
+	}
+
+	100% {
+		transform: translate(389.059006px, 1005.155975px)
+	}
+}
+
+#weather-u-rain6_to {
+	animation: weather-u-rain6_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain6_to__to {
+	0% {
+		transform: translate(924.14234px, 633.478207px)
+	}
+
+	40% {
+		transform: translate(924.14234px, 633.478207px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	60% {
+		transform: translate(784.092499px, 1005.155975px)
+	}
+
+	100% {
+		transform: translate(784.092499px, 1005.155975px)
+	}
+}
+
+#weather-u-rain7_to {
+	animation: weather-u-rain7_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-rain7_to__to {
+	0% {
+		transform: translate(1068.243811px, 528.140256px)
+	}
+
+	48% {
+		transform: translate(1068.243811px, 528.140256px);
+		animation-timing-function: cubic-bezier(0.085, 0.92, 1, 1)
+	}
+
+	60% {
+		transform: translate(928.19397px, 899.818024px)
+	}
+
+	100% {
+		transform: translate(928.19397px, 899.818024px)
+	}
+}
+
+#weather-u-cloud_to {
+	animation: weather-u-cloud_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 53.901497%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud_ts {
+	animation: weather-u-cloud_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud2_to {
+	animation: weather-u-cloud2_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud2_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 88.033779%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud2_ts {
+	animation: weather-u-cloud2_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud2_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud3_to {
+	animation: weather-u-cloud3_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud3_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 83.762574%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud3_ts {
+	animation: weather-u-cloud3_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud3_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud4_to {
+	animation: weather-u-cloud4_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud4_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 93.75817%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud4_ts {
+	animation: weather-u-cloud4_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud4_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud5_to {
+	animation: weather-u-cloud5_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud5_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 90.690362%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud5_ts {
+	animation: weather-u-cloud5_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud5_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud6_to {
+	animation: weather-u-cloud6_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud6_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 77.560885%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud6_ts {
+	animation: weather-u-cloud6_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud6_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-u-cloud7_to {
+	animation: weather-u-cloud7_to__to 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud7_to__to {
+	0% {
+		offset-distance: 0%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		offset-distance: 83.450725%;
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		offset-distance: 100%
+	}
+
+	100% {
+		offset-distance: 100%
+	}
+}
+
+#weather-u-cloud7_ts {
+	animation: weather-u-cloud7_ts__ts 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-u-cloud7_ts__ts {
+	0% {
+		transform: scale(0, 0);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	20% {
+		transform: scale(1, 1);
+		animation-timing-function: cubic-bezier(0.25, 1, 0.25, 1)
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}
+
+#weather-s-path10_tr {
+	animation: weather-s-path10_tr__tr 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-s-path10_tr__tr {
+	0% {
+		transform: translate(135.33781px, 207.03926px) rotate(720deg);
+		animation-timing-function: cubic-bezier(0.415, 0.08, 0.115, 0.955)
+	}
+
+	100% {
+		transform: translate(135.33781px, 207.03926px) rotate(252.467532deg)
+	}
+}
+
+#weather-s-path10 {
+	animation: weather-s-path10_f_p 5000ms linear 1 normal forwards
+}
+
+/* @keyframes weather-s-path10_f_p {
+	0% {
+		fill: #d2dbed
+	}
+
+	100% {
+		fill: #d2dbec
+	}
+}
+
+#weather-s-path11_tr {
+	animation: weather-s-path11_tr__tr 5000ms linear 1 normal forwards
+}
+
+@keyframes weather-s-path11_tr__tr {
+	0% {
+		transform: translate(11.12px, 29.9px) rotate(-720deg);
+		animation-timing-function: cubic-bezier(0.415, 0.08, 0.115, 0.955)
+	}
+
+	100% {
+		transform: translate(11.12px, 29.9px) rotate(-252.467532deg)
+	}
+} */
