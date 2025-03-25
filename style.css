@@ -241,6 +241,10 @@ h2 {
 	cursor: pointer;
 }
 
+#box-adress .row-container {
+	gap: 0;
+}
+
 #box-adress p,
 #box-adress h3 {
 	align-self: flex-end;
@@ -252,6 +256,7 @@ h2 {
 
 /* Box Sunrise */
 #box-sunrise {
+	padding-top: 1.5rem;
 	grid-area: sunrise;
 }
 
@@ -277,7 +282,11 @@ h2 {
 
 #current-weather-container {
 	margin-bottom: 0.5rem;
-	gap: 0.25rem;
+	gap: 0.5rem;
+}
+
+#current-weather-container h1 {
+	font-size: 1.8rem;
 }
 
 /* Box wind */
@@ -462,6 +471,24 @@ h2 {
 	}
 	#sunrise-container img {
 		width: 60%;
+		min-width: 70px;
+	}
+	.day-temp {
+		display: flex;
+		flex-direction: column;
+	}
+	.day-slash {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.day-description {
+		display: flex;
+		flex-direction: column;
+	}
+	.day-commata {
+		display: none;
 	}
 }
 
@@ -518,6 +545,13 @@ h2 {
 
 /* breakpoint for mobile-portait */
 @media only screen and (max-width: 450px ) {
+	#unit-wrapper {
+		font-size: 0.7rem;
+		width: 2rem;
+	}
+	#unit-wrapper[data-unit="1"] #unit-highlight {
+    transform: translateX(1.55rem) translateY(-50%);
+}
 	.box-heading {
 		transform: translate(-0.75rem, -0.5rem);
 	}

@@ -58,6 +58,9 @@ window.addEventListener("resize", () => {
 	lineRender()
 })
 
+forecastWrapper.addEventListener("scroll", () => {
+	lineRender()
+})
 // fetch the data depending on the location
 async function getData() {
 	try {
@@ -250,7 +253,7 @@ function dayElement(day) {
 	const date = new Date(day.datetimeEpoch * 1000)
 	const weekday = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 0 ]
 	const shortDaySeparated = date.toLocaleDateString(undefined, dateOptionsForecast).split(", ")[ 1 ].split(".")
-	const shortDayNumber = `${shortDaySeparated[ 0 ]}. ${shortDaySeparated[ 1 ]}.`
+	const shortDayNumber = `${shortDaySeparated[ 0 ]}.&nbsp;${shortDaySeparated[ 1 ]}.`
 
 	return `
 		<img src="./assets/images/weather_icons/${day.icon}.svg" alt="" class="day-icon">
@@ -265,7 +268,7 @@ function dayElement(day) {
 				<span>${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</span>
 			</div>
 			<div class="day-description">
-				<span class="day-name">${weekday}</span>
+				<span><span class="day-name">${weekday}</span><span class="day-commata">, </span></span>
 				<span class="day-short">${shortDayNumber}</span>
 			</div>
 		</div>
