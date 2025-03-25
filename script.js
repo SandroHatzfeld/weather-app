@@ -58,9 +58,7 @@ window.addEventListener("resize", () => {
 	lineRender()
 })
 
-forecastWrapper.addEventListener("scroll", () => {
-	lineRender()
-})
+
 // fetch the data depending on the location
 async function getData() {
 	try {

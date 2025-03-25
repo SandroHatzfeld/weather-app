@@ -502,7 +502,33 @@ h2 {
 		align-items: center;
 	}
 	#forecast-wrapper {
-		overflow-x: scroll;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(7, auto);
+		gap: 0;
+	}
+	.day-item {
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: 1rem;
+	}
+	.day-bar-container {
+		transform: rotate(90deg);
+		aspect-ratio: 1 / 1;
+		justify-self: flex-start;
+	}
+	.day-data {
+		width: 100%;
+	}
+	.day-description, .day-temp {
+		flex-direction: row;
+		gap: 0.25rem;
+	}
+	.day-slash {
+		display: block;
+	}
+
+	#day-line-svg {
+		display: none;
 	}
 }
 
@@ -540,6 +566,16 @@ h2 {
 	#adress-input-submit {
 		height: 1.5rem;
 		font-size: 1rem;
+	}
+
+	#forecast-wrapper {
+		gap: 1rem;
+	}
+	.day-item {
+		gap: 0.5rem;
+	}
+	.day-bar-container {
+		display: none;
 	}
 }
 
