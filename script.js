@@ -173,7 +173,7 @@ function renderValuesToScreen() {
 	// render forecast
 	forecastWrapper.innerHTML = ""
 	forecast.forEach((day, index) => {
-		if (index > 0) {
+		if (index < 7) {
 
 			const dayItem = document.createElement("div")
 			dayItem.classList.add("day-item")
@@ -181,6 +181,9 @@ function renderValuesToScreen() {
 			dayItem.innerHTML = dayElement(day)
 
 			forecastWrapper.appendChild(dayItem)
+		}
+		if (index === 0) {
+			forecastWrapper.querySelector(".day-name").innerHTML = "Today"
 		}
 	})
 
@@ -256,8 +259,15 @@ function dayElement(day) {
 			<div class="day-temperature" data-temp="${day.temp}"></div>
 		</div>
 		<div class="day-data">
-			<p class="day-temp">${day.tempmin}&nbsp;${units[ selectedUnit ].degree}<br>${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</p>
-			<p class="day-name">${weekday}<br>${shortDayNumber}</p>
+			<div class="day-temp">
+				<span>${day.tempmin}&nbsp;${units[ selectedUnit ].degree}</span>
+				<span class="day-slash">/</span>
+				<span>${day.tempmax}&nbsp;${units[ selectedUnit ].degree}</span>
+			</div>
+			<div class="day-description">
+				<span class="day-name">${weekday}</span>
+				<span class="day-short">${shortDayNumber}</span>
+			</div>
 		</div>
 	`
 }
