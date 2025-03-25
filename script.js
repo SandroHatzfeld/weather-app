@@ -223,13 +223,21 @@ function renderValuesToScreen() {
 async function renderLoadingValues() {
 	app.classList.remove("empty")
 	app.classList.add("loading")
-
+	
 	data = await getData()
-	renderValuesToScreen()
-	setTimeout(() => {
-		lineRender()
-	}, 100)
-	app.classList.remove("loading")
+	
+	if(data) {
+		renderValuesToScreen()
+		setTimeout(() => {
+			lineRender()
+		}, 100)
+		app.classList.remove("loading")
+	} else {
+		app.classList.remove("loading")
+		app.classList.add("empty")
+		$("#adress-value").text("No city found, please enter a valid city.").css("opacity", "1")
+		
+	}
 }
 
 
